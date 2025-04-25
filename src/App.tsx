@@ -1,30 +1,42 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { useForm } from 'react-hook-form';
+import { Button, Theme } from '@radix-ui/themes';
+import { DatePicker } from './components/Datepicker';
+import { DatePickerDesign } from './components/DatePickerDesign';
+import '@radix-ui/themes/styles.css';
+
+interface FormValues {
+  birthDate: Date;
+  appointmentDate: Date;
+}
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { handleSubmit, control } = useForm<FormValues>();
+
+  const onSubmit = (data: FormValues): void => {
+    console.log('Form submitted with:', data);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    <Theme>
+      <form onSubmit={(e) => void handleSubmit(onSubmit)(e)} className="max-w-md space-y-4">
+        <DatePicker
+          name="birthDate"
+          control={control}
+          label="Birth Date"
+          placeholder="MM/DD/YYYY"
+          required
+        />
+
+        <DatePickerDesign
+          name="birthDate"
+          control={control}
+          label="Birth Date"
+          placeholder="MM/DD/YYYY"
+          required
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Theme>
   );
 }
 
