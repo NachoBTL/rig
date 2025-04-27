@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 set -e
 
-npx lint-staged
+npx lint-staged && npm run test
