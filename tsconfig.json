@@ -7,12 +7,13 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "types": ["vitest/globals"],
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "vite.config.ts", "eslint.config.js"],
+  "include": ["src", "vite.config.ts", "eslint.config.js", "tests"],
   "exclude": ["node_modules", "dist"]
 }

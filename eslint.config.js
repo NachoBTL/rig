@@ -8,7 +8,7 @@ import globals from 'globals';
 export default [
   js.configs.recommended,
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ['**/*.ts', '**/*.tsx', 'tests/**/*.tsx'],
     ignores: ['**/dist/**', '**/node_modules/**'],
     plugins: {
       '@typescript-eslint': ts,
@@ -24,6 +24,7 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.es2021,
+        ...globals.jest,
       },
     },
     rules: {
@@ -43,6 +44,12 @@ export default [
     },
   },
   {
-    ignores: ['**/dist/**', '**/node_modules/**', 'vite.config.ts'],
+    ignores: [
+      '**/dist/**',
+      '**/node_modules/**',
+      'tests/setup.ts',
+      'vite.config.ts',
+      'vitest.config.ts',
+    ],
   },
 ];
