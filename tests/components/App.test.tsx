@@ -5,6 +5,6 @@ describe('App', () => {
   it('should render the component', () => {
     render(<App />);
 
-    expect(screen.getByText('RIG')).toBeInTheDocument();
+    expect(screen.getByText('Hello from Radix Themes :)')).toBeInTheDocument();
   });
 });
