@@ -1,12 +1,11 @@
-import { Flex, Text, Button } from '@radix-ui/themes';
+import { Flex } from '@radix-ui/themes';
 import Popover from '@/ui/atoms/Popover';
 
 export default function App() {
   return (
     <>
       <Flex direction="column" gap="2">
-        <Text>Hello from Radix Themes :)</Text>
-        <Button>Let's go</Button>
+        <p>Hello from Radix Themes :)</p>
         <Flex direction="row" gap="2">
           <Popover
             trigger={<button>?</button>}
