@@ -1,5 +1,7 @@
-import { Flex } from '@radix-ui/themes';
-import Popover from '@/ui/atoms/Popover';
+import { Flex, Text, Heading } from '@radix-ui/themes';
+import { Button } from '@/ui/atoms/Button';
+
+import Popover from '@/ui/molecules/Popover';
 
 export default function App() {
   return (
@@ -8,16 +10,22 @@ export default function App() {
         <p>Hello from Radix Themes :)</p>
         <Flex direction="row" gap="2">
           <Popover
-            trigger={<button>?</button>}
+            trigger={
+              <Button variant="surface" radius="full">
+                ?
+              </Button>
+            }
             content={
-              <div>
-                <h4>Lorem ipsum</h4>
-                <p>
+              <Flex direction="column" gap="2">
+                <Heading as="h4" size="3" weight="bold">
+                  Lorem ipsum
+                </Heading>
+                <Text size="3">
                   Lorem ipsum dolor sit amet consectetur. Nunc volutpat elit dictumst lorem nullam
                   ac quis gravida imperdiet. Neque aliquam vitae rhoncus aenean non aliquam aliquam
                   morbi. In nibh mi tincidunt posuere volutpat tristique scelerisque.
-                </p>
-              </div>
+                </Text>
+              </Flex>
             }
             side="right"
           />
