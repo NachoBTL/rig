@@ -6,7 +6,10 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
   plugins: [
     svgr({
-      exportAsDefault: true,
+      svgrOptions: {
+        icon: true,
+      },
+      include: '**/*.svg',
     }),
     react(),
   ],
@@ -14,7 +17,7 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src'),
       '@ui': resolve(__dirname, './src/ui'),
-      // '@assets': resolve(__dirname, './src/assets'),
+      '@assets': resolve(__dirname, './src/assets'),
     },
   },
 });

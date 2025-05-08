@@ -1,30 +1,29 @@
-/* import React from 'react';
+import type { SVGProps } from 'react';
 
-import AlertUserIcon from '@/assets/icons/alert-user.svg?react';
-import BoatIcon from '@/assets/icons/boat.svg?react';
-import BoxIcon from '@/assets/icons/box.svg?react';
-import BoxesTruckIcon from '@/assets/icons/boxes-truck.svg?react';
-import BusinessClimbIcon from '@/assets/icons/business-climb-top.svg?react';
-import BusinessContractApproveIcon from '@/assets/icons/business-contract-approve.svg?react';
-import BusinessDealHandshakeIcon from '@/assets/icons/business-deal-handshake-circle.svg?react';
-import CashShieldIcon from '@/assets/icons/cash-shield.svg?react';
-import FaceIdIcon from '@/assets/icons/face-id.svg?react';
-import FireIcon from '@/assets/icons/fire.svg?react';
-import FlashIcon from '@/assets/icons/flash?react.svg';
-// import FlashIcon from '@/assets/icons/flash.svg';
-import HeadphonesCustomerIcon from '@/assets/icons/headphones-customer-support.svg?react';
-import LoginKeysIcon from '@/assets/icons/login-keys.svg?react';
-import MessagesPeopleBubbleIcon from '@/assets/icons/messages-people-bubble.svg?react';
-import PlaneIcon from '@/assets/icons/plane.svg?react';
-import ShieldStarIcon from '@/assets/icons/shield-star.svg?react';
-import ShieldIcon from '@/assets/icons/shield.svg?react';
-import SmileyHappyIcon from '@/assets/icons/smiley-happy.svg?react';
-import TargetCenterIcon from '@/assets/icons/target-center.svg?react';
-import TwistIcon from '@/assets/icons/twist.svg?react';
-import TruckIcon from '@/assets/icons/truck.svg?react';
+// Assets
+import AlertUserIcon from '@/assets/icons/alert-user.svg';
+import BoatIcon from '@/assets/icons/boat.svg';
+import BoxIcon from '@/assets/icons/box.svg';
+import BoxesTruckIcon from '@/assets/icons/boxes-truck.svg';
+import BusinessClimbIcon from '@/assets/icons/business-climb-top.svg';
+import BusinessContractApproveIcon from '@/assets/icons/business-contract-approve.svg';
+import BusinessDealHandshakeIcon from '@/assets/icons/business-deal-handshake-circle.svg';
+import CashShieldIcon from '@/assets/icons/cash-shield.svg';
+import FaceIdIcon from '@/assets/icons/face-id.svg';
+import FireIcon from '@/assets/icons/fire.svg';
+import FlashIcon from '@/assets/icons/flash.svg';
+import HeadphonesCustomerIcon from '@/assets/icons/headphones-customer-support.svg';
+import LoginKeysIcon from '@/assets/icons/login-keys.svg';
+import MessagesPeopleBubbleIcon from '@/assets/icons/messages-people-bubble.svg';
+import PlaneIcon from '@/assets/icons/plane.svg';
+import ShieldStarIcon from '@/assets/icons/shield-star.svg';
+import ShieldIcon from '@/assets/icons/shield.svg';
+import SmileyHappyIcon from '@/assets/icons/smiley-happy.svg';
+import TargetCenterIcon from '@/assets/icons/target-center.svg';
+import TwistIcon from '@/assets/icons/twist.svg';
+import TruckIcon from '@/assets/icons/truck.svg';
 
 const iconMap = {
-  flash: FlashIcon,
   alertuser: AlertUserIcon,
   boat: BoatIcon,
   box: BoxIcon,
@@ -33,6 +32,7 @@ const iconMap = {
   businesscontract: BusinessContractApproveIcon,
   businessdeal: BusinessDealHandshakeIcon,
   cashshield: CashShieldIcon,
+  flash: FlashIcon,
   faceid: FaceIdIcon,
   fire: FireIcon,
   headphone: HeadphonesCustomerIcon,
@@ -47,23 +47,15 @@ const iconMap = {
   truck: TruckIcon,
 };
 
-export type IconName = keyof typeof iconMap;
+type IconName = keyof typeof iconMap;
 
-export interface IconProps extends React.SVGProps<SVGSVGElement> {
+export interface IconProps extends SVGProps<SVGSVGElement> {
   name: IconName;
   size?: number;
   className?: string;
 }
 
-export function Icon({ name, size = 72, className, ...props }: IconProps) {
+export function Icon({ name, size = 72, ...props }: IconProps) {
   const SvgIcon = iconMap[name];
-  return (
-    <SvgIcon
-      width={size}
-      height={size}
-      className={className}
-      {...props}
-    />
-  );
+  return <SvgIcon width={size} height={size} {...props} />;
 }
- */
