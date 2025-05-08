@@ -7,7 +7,7 @@ import '@radix-ui/themes/styles.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Theme accentColor="plum" grayColor="sand" radius="full">
+    <Theme>
       <App />
       <ThemePanel />
     </Theme>
