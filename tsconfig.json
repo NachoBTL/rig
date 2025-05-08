@@ -4,7 +4,7 @@
     "module": "ESNext",
     "strict": true,
     "jsx": "react-jsx",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "types": ["vitest/globals"],
