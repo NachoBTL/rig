@@ -1,18 +1,18 @@
 import { forwardRef, ReactNode } from 'react';
 
 // Atomic architecture
-import { Input, InputProps } from '../atoms/Input';
+import { Input, InputProps } from '@/ui/atoms/Input';
 
 // Styles
-import styles from './input-with-icons.module.css';
+import styles from './input-icon.module.css';
 
-interface InputWithIconProps extends InputProps {
+interface InputIconProps extends InputProps {
   className?: string;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
 }
 
-export const InputIcon = forwardRef<HTMLInputElement, InputWithIconProps>(
+export const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(
   ({ className, leftIcon, rightIcon, ...props }, ref) => {
     return (
       <div className={`${styles['input-container']} ${className}`}>

@@ -12,7 +12,7 @@ import {
   getYear,
   getMonth,
 } from 'date-fns';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 interface MonthOption {
   value: number;
@@ -83,6 +83,7 @@ export const useDatePicker = ({ minDate, maxDate }: DatePickerConfig): UseDatePi
   const [open, setOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(() => clampDate(new Date(), minDate, maxDate));
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const isNavigation = useRef<boolean>(false);
 
   const today = startOfDay(new Date());
 
@@ -145,6 +146,8 @@ export const useDatePicker = ({ minDate, maxDate }: DatePickerConfig): UseDatePi
 
   const navigateMonth = useCallback(
     (direction: 'next' | 'prev') => {
+      isNavigation.current = true;
+
       setCurrentDate((prevDate) => {
         let newDate = prevDate;
 
@@ -170,10 +173,16 @@ export const useDatePicker = ({ minDate, maxDate }: DatePickerConfig): UseDatePi
 
   const handleMonthChange = useCallback(
     (monthValue: string) => {
+      if (isNavigation.current) {
+        isNavigation.current = false;
+        return;
+      }
+
       const newMonth = parseInt(monthValue, 10);
 
       setCurrentDate((prev) => {
-        const newDate = new Date(getYear(prev), newMonth, 1);
+        const prevYear = prev.getUTCFullYear();
+        const newDate = new Date(Date.UTC(prevYear, newMonth, 1));
 
         return clampDate(newDate, minDate, maxDate);
       });
