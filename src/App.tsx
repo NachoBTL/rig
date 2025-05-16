@@ -1,13 +1,31 @@
 import { Flex, Text, Heading } from '@radix-ui/themes';
 import { Button } from '@/ui/atoms/Button';
-
 import Popover from '@/ui/molecules/Popover';
+import DropdownMenu from '@/ui/molecules/DropdownMenu';
+import DropdownMenuItem from '@/ui/molecules/DropdownMenuItem';
 
 export default function App() {
   return (
     <>
       <Flex direction="column" gap="2">
         <p>Hello from Radix Themes :)</p>
+        <Flex direction="row" gap="2">
+          <DropdownMenu
+            trigger={
+              <Button variant="ghost" aria-label="Guide">
+                Guides
+              </Button>
+            }
+            content={
+              <>
+                <DropdownMenuItem>FAQS</DropdownMenuItem>
+                <DropdownMenuItem>Moving Resources</DropdownMenuItem>
+                <DropdownMenuItem>Insurance Products</DropdownMenuItem>
+                <DropdownMenuItem>Ask the Experts</DropdownMenuItem>
+              </>
+            }
+          ></DropdownMenu>
+        </Flex>
         <Flex direction="row" gap="2">
           <Popover
             trigger={
