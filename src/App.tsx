@@ -9,7 +9,10 @@ export default function App() {
     <Container size="xl">
       <Header currentScreen="screenForm"></Header>
       <Box py="9">
-        <Section py="9">Main</Section>
+        <Section py="9">
+          <p>Main</p>
+          <p>Hello from Radix Themes :)</p>
+        </Section>
         <Footer></Footer>
       </Box>
     </Container>
