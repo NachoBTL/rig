@@ -24,7 +24,7 @@ export default function Container({ size = 'xl', className = '', children }: Con
   return (
     <Box className={`${styles['box-container']} ${className}`}>
       <RadixContainer className={`${sizes[size]} ${styles['container-base']}`}>
-        <Box py="9">{children}</Box>
+        <Box py="5">{children}</Box>
       </RadixContainer>
     </Box>
   );
